@@ -1,5 +1,5 @@
 {
-    "name": "axenov/atol-online",
+    "name": "terciuss/atol-online",
     "description": "Библиотека для работы с API АТОЛ Онлайн (облачные ККТ для приёма платежей по 54-ФЗ)",
     "license": "MIT",
     "type": "library",
