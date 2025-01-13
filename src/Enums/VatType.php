@@ -28,14 +28,19 @@ enum VatType: string
     case VAT0 = 'vat0';
 
     /**
-     * НДС 10%
+     * НДС 5%
      */
-    case VAT10 = 'vat10';
+    case VAT5 = 'vat5';
+
+    /**
+     * НДС 7%
+     */
+    case VAT7 = 'vat7';
 
     /**
      * НДС 10%
      */
-    case VAT5 = 'vat5';
+    case VAT10 = 'vat10';
 
     /**
      * НДС 18%
@@ -46,6 +51,16 @@ enum VatType: string
      * НДС 20%
      */
     case VAT20 = 'vat20';
+
+    /**
+     * НДС 5/110%
+     */
+    case VAT105 = 'vat105';
+
+    /**
+     * НДС 7/110%
+     */
+    case VAT107 = 'vat107';
 
     /**
      * НДС 10/110%

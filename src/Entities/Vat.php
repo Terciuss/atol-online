@@ -98,9 +98,12 @@ final class Vat extends Entity
         return Helpers::toRub(
             match ($this->getType()) {
                 VatType::VAT5 => Helpers::toKop($this->sum) * 5 / 100,
+                VatType::VAT7 => Helpers::toKop($this->sum) * 7 / 100,
                 VatType::VAT10 => Helpers::toKop($this->sum) * 10 / 100,
                 VatType::VAT18 => Helpers::toKop($this->sum) * 18 / 100,
                 VatType::VAT20 => Helpers::toKop($this->sum) * 20 / 100,
+                VatType::VAT105 => Helpers::toKop($this->sum) * 5 / 110,
+                VatType::VAT107 => Helpers::toKop($this->sum) * 7 / 110,
                 VatType::VAT110 => Helpers::toKop($this->sum) * 10 / 110,
                 VatType::VAT118 => Helpers::toKop($this->sum) * 18 / 118,
                 VatType::VAT120 => Helpers::toKop($this->sum) * 20 / 120,
