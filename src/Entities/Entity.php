@@ -98,7 +98,7 @@ abstract class Entity implements JsonSerializable, Stringable, Arrayable, ArrayA
         foreach ($arr as $k => $v) {
             $method = $this->camel('get_' . $k);
             if (method_exists($this, $method)) {
-                $v = $this->$method();
+                $arr[$k] = $v = $this->$method();
             }
             if ($v instanceof Entity) {
                 $arr[$k] = $v->jsonSerialize();
