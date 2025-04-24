@@ -75,7 +75,7 @@ final class CorrectionV5 extends Entity
      * Конструктор
      *
      * @param CompanyV5 $company Продавец
-     * @param CorrectionInfo $correctionInfo Данные коррекции
+     * @param CorrectionInfo $correction_info Данные коррекции
      * @param ItemsV5 $items Коллекция товаров
      * @param Payments $payments Коллекция оплат
      * @throws InvalidEntityInCollectionException
@@ -83,13 +83,13 @@ final class CorrectionV5 extends Entity
      */
     public function __construct(
         CompanyV5      $company,
-        CorrectionInfo $correctionInfo,
+        CorrectionInfo $correction_info,
         ItemsV5        $items,
         Payments       $payments,
     )
     {
         $this->setCompany($company)
-            ->setCorrectionInfo($correctionInfo)
+            ->setCorrectionInfo($correction_info)
             ->setItems($items)
             ->setPayments($payments);
     }
@@ -152,18 +152,18 @@ final class CorrectionV5 extends Entity
      */
     public function getCorrectionInfo(): CorrectionInfo
     {
-        return $this->correctionInfo;
+        return $this->correction_info;
     }
 
     /**
      * Устанавливает данные коррекции
      *
-     * @param CorrectionInfo $correctionInfo
+     * @param CorrectionInfo $correction_info
      * @return Correction
      */
-    public function setCorrectionInfo(CorrectionInfo $correctionInfo): CorrectionV5
+    public function setCorrectionInfo(CorrectionInfo $correction_info): CorrectionV5
     {
-        $this->correctionInfo = $correctionInfo;
+        $this->correction_info = $correction_info;
         return $this;
     }
 
