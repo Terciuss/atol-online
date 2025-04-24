@@ -34,7 +34,7 @@ use Ramsey\Uuid\Uuid;
 /**
  * Класс фискализатора для регистрации документов на ККТ
  */
-final class FiscalizerV5 extends AtolClient
+final class FiscalizerV5 extends AtolClientV5
 {
     /**
      * @var string|null Группа ККТ
@@ -82,7 +82,7 @@ final class FiscalizerV5 extends AtolClient
     public function getGroup(): ?string
     {
         return $this->isTestMode()
-            ? TestEnvParams::FFD105()['group']
+            ? TestEnvParams::FFD12()['group']
             : $this->group;
     }
 
@@ -363,10 +363,10 @@ final class FiscalizerV5 extends AtolClient
     ): ?AtolResponse
     {
         $this->isTestMode() && $document->getCompany()
-            ->setInn(TestEnvParams::FFD105()['inn'])
-            ->setPaymentAddress(TestEnvParams::FFD105()['payment_address']);
+            ->setInn(TestEnvParams::FFD12()['inn'])
+            ->setPaymentAddress(TestEnvParams::FFD12()['payment_address']);
         $this->isTestMode() && $document instanceof ReceiptV5
-        && $document->getClient()->setInn(TestEnvParams::FFD105()['inn']);
+        && $document->getClient()->setInn(TestEnvParams::FFD12()['inn']);
         $this->getCallbackUrl() && $data['service'] = ['callback_url' => $this->getCallbackUrl()];
         $data['ism_optional'] = $ism_optional;
         return $this->auth()
