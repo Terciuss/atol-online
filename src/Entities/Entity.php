@@ -100,12 +100,11 @@ abstract class Entity implements JsonSerializable, Stringable, Arrayable, ArrayA
             if (method_exists($this, $method)) {
                 $v = $this->$method();
             }
-            if (!$withNull && is_null($v)) {
-                unset($arr[$k]);
-                continue;
-            }
             if ($v instanceof Entity) {
                 $arr[$k] = $v->jsonSerialize();
+            }
+            if (!$withNull && is_null($v)) {
+                unset($arr[$k]);
             }
         }
         return $arr;
