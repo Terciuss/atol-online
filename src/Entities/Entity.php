@@ -91,4 +91,35 @@ abstract class Entity implements JsonSerializable, Stringable, Arrayable, ArrayA
             'Объект ' . static::class . ' нельзя изменять как массив. Следует использовать сеттеры.'
         );
     }
+
+    public function getProperties($withNull = false): array
+    {
+        $arr = get_object_vars($this);
+        foreach ($arr as $k => $v) {
+            $method = $this->camel('get_' . $k);
+            if (method_exists($this, $method)) {
+                $v = $this->$method();
+            }
+            if (!$withNull && is_null($v)) {
+                unset($arr[$k]);
+                continue;
+            }
+            if ($v instanceof Entity) {
+                $arr[$k] = $v->jsonSerialize();
+            }
+        }
+        return $arr;
+    }
+
+    private function camel(string $str): string
+    {
+        $str = preg_replace_callback(
+            '/[^a-zA-Z0-9]+([a-zA-Z0-9])/',
+            function ($matches) {
+                return strtoupper($matches[1]);
+            },
+            $str
+        );
+        return lcfirst($str);
+    }
 }

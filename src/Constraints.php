@@ -153,6 +153,8 @@ final class Constraints
      */
     public const MAX_LENGTH_CASHIER_NAME = 64;
 
+    public const LENGTH_CASHIER_INN = 64;
+
     /**
      * Максимальная длина кода товара в байтах (1162)
      *
