@@ -358,9 +358,9 @@ final class CorrectionV5 extends Entity
     /**
      * Возвращает установленную коллекцию ставок НДС
      *
-     * @return Vats
+     * @return Vats|null
      */
-    public function getVats(): Vats
+    public function getVats(): ?Vats
     {
         return $this->vats;
     }
