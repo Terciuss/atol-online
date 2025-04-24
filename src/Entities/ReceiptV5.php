@@ -222,7 +222,7 @@ final class ReceiptV5 extends Entity
      */
     public function getVats(): ?Vats
     {
-        return $this->vats ?? new Vats();
+        return $this->vats;
     }
 
     /**
