@@ -301,7 +301,7 @@ final class ReceiptV5 extends Entity
                 throw new InnCashierException($cashier_inn);
             }
         }
-        $this->cashier = $cashier_inn ?: null;
+        $this->cashier_inn = $cashier_inn ?: null;
         return $this;
     }
 
@@ -312,7 +312,7 @@ final class ReceiptV5 extends Entity
 
     public function setDeviceNumber(?string $device_number): self
     {
-        $this->cashier = $device_number ? trim($device_number) : null;
+        $this->device_number = $device_number ? trim($device_number) : null;
         return $this;
     }
 
